@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工作打卡</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body class="theme-mist">
+  <main class="wrap">
+    <header class="top panel appear-1">
+      <div class="brand">
+        <img src="icons/icon-32.png" alt="logo" class="brand-icon" />
+        <div>
+          <h1>工作打卡</h1>
+          <p>小标签版 · 快速记录 <span id="topTodayText">今天：0000-00-00</span></p>
+        </div>
+      </div>
+      <button id="markTodayBtn" class="btn primary">今天打卡</button>
+    </header>
+
+    <section class="stats panel appear-2">
+      <div class="stat">
+        <span>已打卡</span>
+        <strong id="workedDays">0天</strong>
+      </div>
+      <div class="stat">
+        <span>预计</span>
+        <strong id="totalIncome">¥0</strong>
+      </div>
+      <div class="stat">
+        <span>预填</span>
+        <strong id="prefilledIncome">¥0</strong>
+      </div>
+    </section>
+
+    <section class="insight panel appear-3">
+      <div class="insight-top">
+        <span id="monthProgressText">本月进度 0%</span>
+        <div class="chips">
+          <span id="streakChip" class="chip accent">连续0天</span>
+          <span id="statusChip" class="chip">待开始</span>
+        </div>
+      </div>
+      <div class="progress-track"><div id="monthProgressBar" class="progress-bar"></div></div>
+    </section>
+
+    <section class="toolbar panel appear-4">
+      <div class="mode-switch">
+        <button id="monthViewBtn" class="btn mini active">月视图</button>
+        <button id="weekViewBtn" class="btn mini">周视图</button>
+      </div>
+      <div class="tool-right">
+        <div id="weekNav" class="week-nav hidden">
+          <button id="prevWeekBtn" class="btn mini">上周</button>
+          <button id="nextWeekBtn" class="btn mini">下周</button>
+        </div>
+        <button id="themeBtn" class="btn ghost">主题：晨雾</button>
+        <button id="minimalBtn" class="btn ghost">极速：关</button>
+      </div>
+    </section>
+
+    <section class="month-bar panel appear-5">
+      <button id="prevMonth" class="btn mini">‹</button>
+      <div class="month-meta">
+        <h2 id="monthText">0000-00</h2>
+        <span id="todayText">今天：0000-00-00</span>
+      </div>
+      <button id="nextMonth" class="btn mini">›</button>
+    </section>
+
+    <section class="week appear-6" id="weekHead"></section>
+    <section class="calendar appear-6" id="calendar"></section>
+
+    <section class="form panel appear-7">
+      <label>
+        默认日薪
+        <input id="dailyWage" type="number" min="0" step="0.01" placeholder="元" />
+      </label>
+      <label>
+        <span id="selectedDateLabel">选中日期：未选择</span>
+        <input id="selectedIncome" type="number" min="0" step="0.01" placeholder="当日收入，可预填" />
+      </label>
+    </section>
+
+    <section class="ops panel appear-8">
+      <button id="clearBtn" class="btn danger">清空本月</button>
+      <button id="exportBtn" class="btn ghost">导出</button>
+      <label class="btn ghost file-like">导入<input id="importInput" type="file" accept="application/json" /></label>
+    </section>
+  </main>
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

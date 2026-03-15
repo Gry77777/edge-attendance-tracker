@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工作打卡 iTab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <main class="layout">
+    <section class="hero card">
+      <div>
+        <h1>工作打卡 iTab</h1>
+        <p>新标签页快速打卡、统计天数、管理每日收入。</p>
+      </div>
+      <div class="hero-actions">
+        <button id="markTodayBtn" class="btn primary">今天打卡</button>
+        <button id="toggleWorkedBtn" class="btn ghost">切换打卡</button>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="card stat">
+        <span>本月已打卡</span>
+        <strong id="workedDays">0 天</strong>
+      </article>
+      <article class="card stat">
+        <span>本月预计收入</span>
+        <strong id="totalIncome">¥ 0.00</strong>
+      </article>
+      <article class="card stat">
+        <span>预填收入总额</span>
+        <strong id="prefilledIncome">¥ 0.00</strong>
+      </article>
+    </section>
+
+    <section class="main-grid">
+      <article class="card calendar-card">
+        <header class="month-bar">
+          <button id="prevMonth" class="btn mini">‹</button>
+          <h2 id="monthText">0000-00</h2>
+          <button id="nextMonth" class="btn mini">›</button>
+        </header>
+        <div class="week-head" id="weekHead"></div>
+        <div class="calendar" id="calendar"></div>
+      </article>
+
+      <aside class="card side-card">
+        <div class="form-row">
+          <label for="dailyWage">默认日薪（元）</label>
+          <input id="dailyWage" type="number" min="0" step="0.01" placeholder="例如 300" />
+        </div>
+        <div class="form-row">
+          <label id="selectedDateLabel">选中日期：未选择</label>
+          <input id="selectedIncome" type="number" min="0" step="0.01" placeholder="未打卡也可预填" />
+        </div>
+        <div class="action-row">
+          <button id="exportBtn" class="btn secondary">导出JSON</button>
+          <label class="btn secondary file-like">
+            导入JSON
+            <input id="importInput" type="file" accept="application/json" />
+          </label>
+          <button id="clearBtn" class="btn danger">清空本月</button>
+        </div>
+
+        <div class="record-wrap">
+          <h3>记录</h3>
+          <div class="record-table" id="recordTable"></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="newtab.js"></script>
+</body>
+</html>
